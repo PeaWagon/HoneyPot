@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HoneyPot</string>
+    <string name="button_main_honey">My Honey</string>
+    <string name="button_main_presents">Presents</string>
+    <string name="button_main_reminders">Reminders</string>
+</resources>
