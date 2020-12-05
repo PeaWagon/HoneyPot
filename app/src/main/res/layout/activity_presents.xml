@@ -22,6 +22,8 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/fab_presents_margin"
             android:clickable="true"
+            android:focusable="true"
+            android:onClick="onClickPresentsFab"
             app:backgroundTint="#E91E63"
             app:maxImageSize="@dimen/fab_presents_img_size"
             app:srcCompat="@android:drawable/ic_input_add" />
