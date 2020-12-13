@@ -2,6 +2,7 @@ package com.jj.honeypot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ public class PresentsActivity extends AppCompatActivity {
     }
 
     public void onClickPresentsFab(View view) {
-        Log.d("test", "hello from fab");
+        Intent newPresentActivityIntent = new Intent(this, NewPresentActivity.class);
+        startActivity(newPresentActivityIntent);
     }
 }

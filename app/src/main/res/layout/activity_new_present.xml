@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewPresentActivity">
+
+    <!--make label float above input field-->
+    <!--https://guides.codepath.com/android/Working-with-the-EditText-->
+
+    <TextView
+        android:id="@+id/textViewNewPresentTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_present_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textViewNewPresentName"
+        />
+
+    <TextView
+        android:id="@+id/textViewNewPresentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_present_name"
+        app:layout_constraintBottom_toTopOf="@id/editTextNewPresentName"
+        app:layout_constraintEnd_toEndOf="@id/editTextNewPresentName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/editTextNewPresentName"
+        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentTitle" />
+
+    <EditText
+        android:id="@+id/editTextNewPresentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/new_present_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentName"
+        app:layout_constraintBottom_toTopOf="@id/textViewNewPresentPrice"
+        />
+
+    <TextView
+        android:id="@+id/textViewNewPresentPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_present_price"
+        app:layout_constraintBottom_toTopOf="@id/editTextNewPresentPrice"
+        app:layout_constraintEnd_toEndOf="@id/editTextNewPresentPrice"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/editTextNewPresentPrice"
+        app:layout_constraintTop_toBottomOf="@id/editTextNewPresentName" />
+
+    <EditText
+        android:id="@+id/editTextNewPresentPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@id/textViewNewPresentStore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentPrice" />
+
+    <TextView
+        android:id="@+id/textViewNewPresentStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_present_store"
+        app:layout_constraintBottom_toTopOf="@id/editTextNewPresentStore"
+        app:layout_constraintEnd_toEndOf="@id/editTextNewPresentStore"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/editTextNewPresentStore"
+        app:layout_constraintTop_toBottomOf="@id/editTextNewPresentPrice" />
+
+    <EditText
+        android:id="@+id/editTextNewPresentStore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Store"
+        app:layout_constraintBottom_toTopOf="@id/textViewNewPresentPicture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentStore" />
+
+    <TextView
+        android:id="@+id/textViewNewPresentPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_present_picture"
+        app:layout_constraintBottom_toTopOf="@id/editTextNewPresentPicture"
+        app:layout_constraintEnd_toEndOf="@id/editTextNewPresentPicture"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/editTextNewPresentPicture"
+        app:layout_constraintTop_toBottomOf="@id/editTextNewPresentStore" />
+
+    <EditText
+        android:id="@+id/editTextNewPresentPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Picture"
+        app:layout_constraintBottom_toTopOf="@id/guidelineNewPresent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentPicture"
+         />
+
+    <Button
+        android:id="@+id/buttonCreateNewPresent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCreateNewPresentButton"
+        android:text="@string/button_new_present_create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/buttonCancelNewPresent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineNewPresent" />
+
+    <Button
+        android:id="@+id/buttonCancelNewPresent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCancelNewPresentButton"
+        android:text="@string/button_new_present_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonCreateNewPresent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineNewPresent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineNewPresent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

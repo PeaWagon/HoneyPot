@@ -3,4 +3,14 @@
     <string name="button_main_honey">My Honey</string>
     <string name="button_main_presents">Presents</string>
     <string name="button_main_reminders">Reminders</string>
+
+    <string name="fab_presents_new_hint">Create a new present.</string>
+
+    <string name="new_present_title">New Present</string>
+    <string name="new_present_name">Name:</string>
+    <string name="new_present_price">Price:</string>
+    <string name="new_present_store">Store:</string>
+    <string name="new_present_picture">Picture:</string>
+    <string name="button_new_present_create">Create</string>
+    <string name="button_new_present_cancel">Cancel</string>
 </resources>
