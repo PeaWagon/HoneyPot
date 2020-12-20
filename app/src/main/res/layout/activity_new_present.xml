@@ -61,6 +61,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:text="0.0"
         app:layout_constraintBottom_toTopOf="@id/textViewNewPresentStore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,33 +85,33 @@
         android:ems="10"
         android:inputType="text"
         android:text="Store"
-        app:layout_constraintBottom_toTopOf="@id/textViewNewPresentPicture"
+        app:layout_constraintBottom_toTopOf="@id/textViewNewPresentImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textViewNewPresentStore" />
 
     <TextView
-        android:id="@+id/textViewNewPresentPicture"
+        android:id="@+id/textViewNewPresentImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/new_present_picture"
-        app:layout_constraintBottom_toTopOf="@id/editTextNewPresentPicture"
-        app:layout_constraintEnd_toEndOf="@id/editTextNewPresentPicture"
+        android:text="@string/new_present_image"
+        app:layout_constraintBottom_toTopOf="@id/editTextNewPresentImage"
+        app:layout_constraintEnd_toEndOf="@id/editTextNewPresentImage"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/editTextNewPresentPicture"
+        app:layout_constraintStart_toStartOf="@id/editTextNewPresentImage"
         app:layout_constraintTop_toBottomOf="@id/editTextNewPresentStore" />
 
     <EditText
-        android:id="@+id/editTextNewPresentPicture"
+        android:id="@+id/editTextNewPresentImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Picture"
+        android:text="Image"
         app:layout_constraintBottom_toTopOf="@id/guidelineNewPresent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentPicture"
+        app:layout_constraintTop_toBottomOf="@id/textViewNewPresentImage"
          />
 
     <Button

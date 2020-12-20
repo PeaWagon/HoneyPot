@@ -10,7 +10,20 @@
     <string name="new_present_name">Name:</string>
     <string name="new_present_price">Price:</string>
     <string name="new_present_store">Store:</string>
-    <string name="new_present_picture">Picture:</string>
+    <string name="new_present_image">Image:</string>
     <string name="button_new_present_create">Create</string>
     <string name="button_new_present_cancel">Cancel</string>
+
+    <string name="dialog_delete_presents_file_message">
+        The current presents file cannot be opened and will be deleted.
+    </string>
+    <string name="dialog_delete_presents_file_title">Corrupt presents file</string>
+    <string name="dialog_delete_presents_file_positive_button">Delete</string>
+    <string name="dialog_delete_presents_file_negative_button">Cancel</string>
+
+    <string name="dialog_new_present_message">
+        The present could not be added.
+    </string>
+    <string name="dialog_new_present_title">Could not add present</string>
+    <string name="dialog_new_present_positive_button">OK</string>
 </resources>

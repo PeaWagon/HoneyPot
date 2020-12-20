@@ -1,5 +1,8 @@
 package com.jj.honeypot;
 
+import android.util.Log;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,27 +14,16 @@ public class Present implements Serializable {
     public String name;
     public double price;
     public String store;
-    public String picture;
+    public String image;
 
-    public Present(String name, double price, String store, String picture) {
+    public Present(String name, double price, String store, String image) {
         this.created = new Date();
         this.updated = new Date();
 
         this.name = name;
         this.price = price;
         this.store = store;
-        this.picture = picture;
+        this.image = image;
     }
 
-    /*private void writeObject(java.io.ObjectOutputStream out) {
-        throws IOException;
-    }
-
-    private void readObject(java.io.ObjectInputStream in) {
-        throws IOException, ClassNotFoundException;
-    }
-
-    private void readObjectNoData() {
-        throws ObjectStreamException;
-    }*/
 }

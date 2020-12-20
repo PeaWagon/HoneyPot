@@ -1,11 +1,22 @@
 package com.jj.honeypot;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 
 public class PresentsActivity extends AppCompatActivity {
 
@@ -13,10 +24,60 @@ public class PresentsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_presents);
+
+        ArrayList<Present> presents = new ArrayList<>();
+        try {
+             presents = Presents.getPresentsFromFile(getAppFilesDir());
+        } catch (ClassNotFoundException | java.io.IOException exception) {
+            deletePresentsFileDialog();
+        }
+
+        Log.d("Justin",""+presents.size());
+        // do stuff with presents
+    }
+
+    private String getAppFilesDir() {
+        // getFilesDir can only be called within an app activity
+        // since it needs the android 'context' from the activity
+        // getFilesDir returns a file object, so we call getAbsolutePath
+        // method to get the string
+        return getFilesDir().getAbsolutePath();
     }
 
     public void onClickPresentsFab(View view) {
         Intent newPresentActivityIntent = new Intent(this, NewPresentActivity.class);
         startActivity(newPresentActivityIntent);
     }
+
+    private void deletePresentsFileDialog() {
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        // the dialog is not dismissed if user clicks outside
+        // alert dialog or clicks back button
+        dialog.setCancelable(false);
+        dialog.setMessage(R.string.dialog_delete_presents_file_message);
+        dialog.setTitle(R.string.dialog_delete_presents_file_title);
+        // delete the presents file if user clicks OK
+        dialog.setPositiveButton(
+            R.string.dialog_delete_presents_file_positive_button,
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Presents.deletePresentsFile(getAppFilesDir());
+                }
+            }
+        );
+        // return to main activity if user clicks Cancel
+        dialog.setNegativeButton(
+            R.string.dialog_delete_presents_file_negative_button,
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            }
+        );
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+    }
+
 }

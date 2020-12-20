@@ -2,6 +2,8 @@
 <resources>
     <dimen name="button_main_width">120dp</dimen>
     <dimen name="button_main_height">50dp</dimen>
-    <dimen name="fab_presents_img_size">48dp</dimen>
+    <dimen name="fab_presents_image_size">48dp</dimen>
     <dimen name="fab_presents_margin">20dp</dimen>
+    <dimen name="present_height">200dp</dimen>
+    <dimen name="present_image_size">180dp</dimen>
 </resources>
