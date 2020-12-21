@@ -37,7 +37,7 @@ public class PresentsActivity extends AppCompatActivity {
         Log.d("Justin",""+presents.size());
         // do stuff with presents
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_presents);
-        PresentsAdapter presentsAdapter = new PresentsAdapter(presents);
+        PresentsAdapter presentsAdapter = new PresentsAdapter(presents,getAppFilesDir());
         recyclerView.setAdapter(presentsAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -54,6 +54,9 @@ public class PresentsActivity extends AppCompatActivity {
         Intent newPresentActivityIntent = new Intent(this, NewPresentActivity.class);
         startActivityForResult(newPresentActivityIntent,1);
     }
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -98,6 +101,36 @@ public class PresentsActivity extends AppCompatActivity {
         );
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
+    }
+
+    public void deletePresentDialog(final int presentIndex) {
+        // what happens when you click the delete fab next to
+        // a given present
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle(R.string.dialog_delete_present_title);
+        dialog.setMessage(R.string.dialog_delete_present_message);
+        dialog.setPositiveButton(
+            R.string.dialog_delete_present_positive_button,
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    boolean deleteSuccess = Presents.deletePresent(getAppFilesDir(), presentIndex);
+                    if (deleteSuccess) {
+                        finish();
+                        startActivity(getIntent());
+                    }
+                }
+            }
+        );
+        dialog.setNegativeButton(
+            R.string.dialog_delete_present_negative_button,
+            new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    return;
+                }
+            }
+        );
     }
 
 }

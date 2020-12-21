@@ -19,6 +19,24 @@ public class Presents {
         return presentsFileFull;
     }
 
+    public static boolean deletePresent(String appFilesDir, int presentIndex) {
+        // delete a present from the specified index
+        // (starting from index 0) and rewrite presents to file
+        // returns true if deletion was successful
+        try {
+            ArrayList<Present> presents = getPresentsFromFile(appFilesDir);
+            presents.remove(presentIndex);
+            writePresentsToFile(appFilesDir, presents);
+        } catch (java.lang.ClassNotFoundException | java.io.IOException exception) {
+            Log.d("Exception", exception.toString());
+            return false;
+        } catch (IndexOutOfBoundsException exception) {
+            Log.d("Exception", exception.toString());
+            return false;
+        }
+        return true;
+    }
+
     public static void deletePresentsFile(String appFilesDir) {
         String presentsFileName = getPresentsFile(appFilesDir);
         File presentsFile = new File(presentsFileName);

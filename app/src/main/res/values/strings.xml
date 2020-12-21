@@ -21,6 +21,11 @@
     <string name="dialog_delete_presents_file_positive_button">Delete</string>
     <string name="dialog_delete_presents_file_negative_button">Cancel</string>
 
+    <string name="dialog_delete_present_title">Delete Present</string>
+    <string name="dialog_delete_present_message">This action cannot be undone.</string>
+    <string name="dialog_delete_present_positive_button">Delete</string>
+    <string name="dialog_delete_present_negative_button">Cancel</string>
+
     <string name="dialog_new_present_message">
         The present could not be added.
     </string>

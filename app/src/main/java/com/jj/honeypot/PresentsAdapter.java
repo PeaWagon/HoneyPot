@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 public class PresentsAdapter extends RecyclerView.Adapter<PresentsAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
+        String appFilesDir;
         public TextView name;
         public TextView price;
         public TextView store;
@@ -24,8 +25,9 @@ public class PresentsAdapter extends RecyclerView.Adapter<PresentsAdapter.ViewHo
         public FloatingActionButton deletePresent;
         public FloatingActionButton editPresent;
 
-        public ViewHolder(View view) {
+        public ViewHolder(View view, String afd) {
             super(view);
+            appFilesDir = afd;
             name = (TextView) view.findViewById(R.id.textViewPresentName);
             price = (TextView) view.findViewById(R.id.textViewPresentPrice);
             store = (TextView) view.findViewById(R.id.textViewPresentStore);
@@ -36,9 +38,11 @@ public class PresentsAdapter extends RecyclerView.Adapter<PresentsAdapter.ViewHo
     }
 
     private ArrayList<Present> presents;
+    private String appFilesDir;
 
-    public PresentsAdapter(ArrayList<Present> inputPresents) {
+    public PresentsAdapter(ArrayList<Present> inputPresents, String afd) {
         presents = inputPresents;
+        appFilesDir = afd;
     }
 
     @NonNull
@@ -47,12 +51,12 @@ public class PresentsAdapter extends RecyclerView.Adapter<PresentsAdapter.ViewHo
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View presentView = inflater.inflate(R.layout.present, parent, false);
-        ViewHolder viewHolder = new ViewHolder(presentView);
+        ViewHolder viewHolder = new ViewHolder(presentView, appFilesDir);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PresentsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PresentsAdapter.ViewHolder holder, final int position) {
         Present present = presents.get(position);
         // avoid null present error when attempting
         // to get properties
@@ -70,6 +74,20 @@ public class PresentsAdapter extends RecyclerView.Adapter<PresentsAdapter.ViewHo
         textViewStore.setText(present.store);
         ImageView imageViewImage = holder.image;
         imageViewImage.setImageResource(R.drawable.honeypot_logo);
+
+        holder.deletePresent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Justin","Starting delete");
+                Presents.deletePresent(appFilesDir,position);
+                Log.d("Justin","Removing at: "+position);
+                Log.d("Justin","presents.size(): "+presents.size());
+                presents.remove(position);
+                notifyItemRemoved(position);
+
+            }
+        });
+//        holder.deletePresent.setOnTouchListener();
     }
 
     @Override
