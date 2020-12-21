@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -126,6 +127,11 @@ public class NewPresentActivity extends AppCompatActivity {
         boolean addPresentResult = addPresentToFile(present);
         if (addPresentResult) {
             Log.d("Present", "add present success");
+            // setting the RESULT_OK return intent means
+            // the presents RecyclerView will be refreshed
+            // when returning to the PresentsActivity
+            Intent returnIntent = new Intent();
+            setResult(RESULT_OK, returnIntent);
             finish();
         } else {
             Log.d("Present", "add present failure");
@@ -133,6 +139,8 @@ public class NewPresentActivity extends AppCompatActivity {
     }
 
     public void onClickCancelNewPresentButton(View view) {
+        Intent returnIntent = new Intent();
+        setResult(RESULT_CANCELED, returnIntent);
         finish();
     }
 }

@@ -12,6 +12,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/honeypot_logo"
         app:layout_constraintBottom_toTopOf="@id/guidelineImageButtons"
         app:layout_constraintEnd_toEndOf="@id/guidelineImageButtonsVertical"

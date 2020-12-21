@@ -1,7 +1,9 @@
 package com.jj.honeypot;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
@@ -34,6 +36,10 @@ public class PresentsActivity extends AppCompatActivity {
 
         Log.d("Justin",""+presents.size());
         // do stuff with presents
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView_presents);
+        PresentsAdapter presentsAdapter = new PresentsAdapter(presents);
+        recyclerView.setAdapter(presentsAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private String getAppFilesDir() {
@@ -46,7 +52,21 @@ public class PresentsActivity extends AppCompatActivity {
 
     public void onClickPresentsFab(View view) {
         Intent newPresentActivityIntent = new Intent(this, NewPresentActivity.class);
-        startActivity(newPresentActivityIntent);
+        startActivityForResult(newPresentActivityIntent,1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("Justin","onActivityResult");
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                finish();
+                startActivity(getIntent());
+            } else if (resultCode == RESULT_CANCELED) {
+                // Do nothing
+            }
+        }
     }
 
     private void deletePresentsFileDialog() {
